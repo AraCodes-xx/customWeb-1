@@ -1,0 +1,1531 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    background: #020202;
+    color: #ffffff;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =========================================================
+   GOLD VARIABLES
+========================================================= */
+
+:root {
+
+    --gold: #d4af37;
+
+    --gold-light: #f5df8b;
+
+    --gold-bright: #fff1a8;
+
+    --glass:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.015)
+        );
+
+}
+
+
+/* =========================================================
+   =========================================================
+   VERSE PAGE
+   =========================================================
+========================================================= */
+
+.verse-page {
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212,175,55,0.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(212,175,55,0.07),
+            transparent 30%
+        ),
+
+        #020202;
+
+}
+
+
+/* =========================================================
+   VERSE HOME
+========================================================= */
+
+.verse-home {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   SOFT GOLD GLOW
+========================================================= */
+
+.gold-glow {
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(212,175,55,0.055);
+
+    filter:
+        blur(100px);
+
+    pointer-events: none;
+
+}
+
+
+.glow-left {
+
+    left: -180px;
+    top: -120px;
+
+}
+
+
+.glow-right {
+
+    right: -180px;
+    bottom: -130px;
+
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.slides {
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+
+}
+
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   SLIDE
+========================================================= */
+
+.slide {
+
+    position: relative;
+
+    flex:
+        0 0 100%;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    scroll-snap-align: center;
+
+}
+
+
+/* =========================================================
+   VERSE CARD
+========================================================= */
+
+.verse-card {
+
+    position: relative;
+
+    width:
+        min(
+            850px,
+            92vw
+        );
+
+    min-height: 470px;
+
+    padding:
+        60px
+        50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(212,175,55,0.32);
+
+    border-radius: 30px;
+
+    background:
+        var(--glass);
+
+    backdrop-filter:
+        blur(24px);
+
+    -webkit-backdrop-filter:
+        blur(24px);
+
+    box-shadow:
+
+        0 30px 90px
+        rgba(0,0,0,0.70),
+
+        inset 0 1px 1px
+        rgba(255,255,255,0.10),
+
+        0 0 55px
+        rgba(212,175,55,0.04);
+
+    transition:
+
+        transform 0.45s ease,
+
+        border-color 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* =========================================================
+   VERSE CARD HOVER
+========================================================= */
+
+.verse-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(212,175,55,0.62);
+
+    box-shadow:
+
+        0 40px 100px
+        rgba(0,0,0,0.80),
+
+        inset 0 1px 1px
+        rgba(255,255,255,0.14),
+
+        0 0 70px
+        rgba(212,175,55,0.09);
+
+}
+
+
+/* =========================================================
+   CARD GOLD CORNERS
+========================================================= */
+
+.verse-card::before,
+.verse-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(212,175,55,0.52);
+
+    pointer-events: none;
+
+    transition:
+        width 0.4s ease,
+        height 0.4s ease;
+
+}
+
+
+.verse-card::before {
+
+    left: 18px;
+    top: 18px;
+
+    border-right: none;
+    border-bottom: none;
+
+    border-radius:
+        12px 0 0 0;
+
+}
+
+
+.verse-card::after {
+
+    right: 18px;
+    bottom: 18px;
+
+    border-left: none;
+    border-top: none;
+
+    border-radius:
+        0 0 12px 0;
+
+}
+
+
+.verse-card:hover::before,
+.verse-card:hover::after {
+
+    width: 60px;
+    height: 60px;
+
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+
+    margin-bottom: 28px;
+
+    color:
+        var(--gold);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   VERSE TITLE
+========================================================= */
+
+.verse-card h1 {
+
+    max-width: 720px;
+
+    font-size:
+        clamp(
+            27px,
+            4vw,
+            45px
+        );
+
+    line-height: 1.45;
+
+    font-weight: normal;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #ffffff,
+            var(--gold-light),
+            var(--gold),
+            #fff4b0
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+/* =========================================================
+   REFERENCE
+========================================================= */
+
+.reference {
+
+    margin-top: 28px;
+
+    color:
+        var(--gold);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   VERSE DESCRIPTION
+========================================================= */
+
+.verse-card p {
+
+    max-width: 560px;
+
+    margin-top: 22px;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.continue-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 38px;
+
+    padding:
+        14px
+        38px;
+
+    border:
+        1px solid
+        rgba(212,175,55,0.62);
+
+    border-radius: 999px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,0.18),
+            rgba(255,255,255,0.025)
+        );
+
+    color:
+        var(--gold-light);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    transition:
+
+        transform 0.3s ease,
+
+        background 0.3s ease,
+
+        box-shadow 0.3s ease,
+
+        letter-spacing 0.3s ease;
+
+}
+
+
+.continue-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    background:
+        rgba(212,175,55,0.22);
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(212,175,55,0.20);
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.dots {
+
+    position: fixed;
+
+    z-index: 20;
+
+    left: 50%;
+    bottom: 55px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.dot {
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.22);
+
+    transition:
+
+        width 0.3s ease,
+
+        background 0.3s ease,
+
+        box-shadow 0.3s ease;
+
+}
+
+
+.dot.active {
+
+    width: 18px;
+
+    border-radius: 999px;
+
+    background:
+        var(--gold);
+
+    box-shadow:
+
+        0 0 10px
+        rgba(212,175,55,0.55);
+
+}
+
+
+/* =========================================================
+   SWIPE HINT
+========================================================= */
+
+.swipe-hint {
+
+    position: fixed;
+
+    z-index: 20;
+
+    left: 50%;
+    bottom: 26px;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,0.32);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    transition:
+        opacity 0.5s ease;
+
+    animation:
+        swipePulse 2.2s infinite;
+
+}
+
+
+@keyframes swipePulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   =========================================================
+   MESSAGE PAGE
+   =========================================================
+========================================================= */
+
+.message-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(212,175,55,0.065),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(212,175,55,0.045),
+            transparent 30%
+        ),
+
+        #020202;
+
+}
+
+
+/* =========================================================
+   YOKAI BACKGROUND
+========================================================= */
+
+.yokai-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   YOKAI IMAGE
+========================================================= */
+
+.yokai {
+
+    position: absolute;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    opacity: 0.14;
+
+    filter:
+
+        drop-shadow(
+            0 0 6px
+            rgba(212,175,55,0.18)
+        );
+
+    user-select: none;
+
+    pointer-events: none;
+
+    will-change:
+        transform;
+
+    transition:
+        opacity 0.6s ease;
+
+    animation:
+        yokaiFloat 8s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   SCATTERED YOKAI
+========================================================= */
+
+
+/* TOP LEFT */
+
+.yokai-1 {
+
+    width: 280px;
+
+    left: -100px;
+    top: -65px;
+
+    opacity: 0.13;
+
+    transform:
+        rotate(-14deg);
+
+    animation-delay:
+        -1s;
+
+}
+
+
+/* TOP RIGHT */
+
+.yokai-2 {
+
+    width: 330px;
+
+    right: -115px;
+    top: -70px;
+
+    opacity: 0.16;
+
+    transform:
+        rotate(13deg);
+
+    animation-delay:
+        -4s;
+
+}
+
+
+/* LEFT MIDDLE */
+
+.yokai-3 {
+
+    width: 240px;
+
+    left: -105px;
+    top: 36%;
+
+    opacity: 0.12;
+
+    transform:
+        rotate(-19deg);
+
+    animation-delay:
+        -2s;
+
+}
+
+
+/* RIGHT MIDDLE */
+
+.yokai-4 {
+
+    width: 270px;
+
+    right: -105px;
+    top: 40%;
+
+    opacity: 0.13;
+
+    transform:
+        rotate(18deg);
+
+    animation-delay:
+        -6s;
+
+}
+
+
+/* BOTTOM LEFT */
+
+.yokai-5 {
+
+    width: 330px;
+
+    left: -115px;
+    bottom: -105px;
+
+    opacity: 0.15;
+
+    transform:
+        rotate(12deg);
+
+    animation-delay:
+        -3s;
+
+}
+
+
+/* BOTTOM RIGHT */
+
+.yokai-6 {
+
+    width: 300px;
+
+    right: -105px;
+    bottom: -90px;
+
+    opacity: 0.14;
+
+    transform:
+        rotate(-13deg);
+
+    animation-delay:
+        -5s;
+
+}
+
+
+/* TOP CENTER */
+
+.yokai-7 {
+
+    width: 150px;
+
+    left: 22%;
+    top: -65px;
+
+    opacity: 0.075;
+
+    transform:
+        rotate(8deg);
+
+    animation-delay:
+        -7s;
+
+}
+
+
+/* BOTTOM CENTER */
+
+.yokai-8 {
+
+    width: 175px;
+
+    right: 21%;
+    bottom: -75px;
+
+    opacity: 0.085;
+
+    transform:
+        rotate(-8deg);
+
+    animation-delay:
+        -1.5s;
+
+}
+
+
+/* EXTRA LEFT */
+
+.yokai-9 {
+
+    width: 130px;
+
+    left: 7%;
+    top: 67%;
+
+    opacity: 0.07;
+
+    transform:
+        rotate(-7deg);
+
+    animation-delay:
+        -4.5s;
+
+}
+
+
+/* EXTRA RIGHT */
+
+.yokai-10 {
+
+    width: 150px;
+
+    right: 7%;
+    top: 68%;
+
+    opacity: 0.075;
+
+    transform:
+        rotate(8deg);
+
+    animation-delay:
+        -2.5s;
+
+}
+
+
+/* =========================================================
+   YOKAI FLOAT
+========================================================= */
+
+@keyframes yokaiFloat {
+
+    0% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -12px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+
+}
+
+
+/* =========================================================
+   PAGE HOVER
+========================================================= */
+
+.message-page:hover .yokai {
+
+    opacity: 0.19;
+
+}
+
+
+/* =========================================================
+   MESSAGE CONTENT
+========================================================= */
+
+.message-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        80px
+        25px;
+
+}
+
+
+/* =========================================================
+   MESSAGE GLASS CARD
+========================================================= */
+
+.message-card {
+
+    position: relative;
+
+    width:
+        min(
+            760px,
+            88vw
+        );
+
+    padding:
+        65px
+        55px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(212,175,55,0.34);
+
+    border-radius: 30px;
+
+    background:
+        var(--glass);
+
+    backdrop-filter:
+        blur(23px);
+
+    -webkit-backdrop-filter:
+        blur(23px);
+
+    box-shadow:
+
+        0 35px 100px
+        rgba(0,0,0,0.75),
+
+        inset 0 1px 1px
+        rgba(255,255,255,0.11),
+
+        0 0 65px
+        rgba(212,175,55,0.055);
+
+    transition:
+
+        transform 0.45s ease,
+
+        border-color 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* =========================================================
+   MESSAGE CARD HOVER
+========================================================= */
+
+.message-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(212,175,55,0.62);
+
+    box-shadow:
+
+        0 45px 110px
+        rgba(0,0,0,0.84),
+
+        inset 0 1px 1px
+        rgba(255,255,255,0.14),
+
+        0 0 85px
+        rgba(212,175,55,0.10);
+
+}
+
+
+/* =========================================================
+   MESSAGE GOLD CORNERS
+========================================================= */
+
+.message-card::before,
+.message-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(212,175,55,0.52);
+
+    pointer-events: none;
+
+    transition:
+
+        width 0.4s ease,
+
+        height 0.4s ease;
+
+}
+
+
+.message-card::before {
+
+    left: 18px;
+    top: 18px;
+
+    border-right: none;
+    border-bottom: none;
+
+    border-radius:
+        13px 0 0 0;
+
+}
+
+
+.message-card::after {
+
+    right: 18px;
+    bottom: 18px;
+
+    border-left: none;
+    border-top: none;
+
+    border-radius:
+        0 0 13px 0;
+
+}
+
+
+.message-card:hover::before,
+.message-card:hover::after {
+
+    width: 65px;
+    height: 65px;
+
+}
+
+
+/* =========================================================
+   MESSAGE EYEBROW
+========================================================= */
+
+.message-eyebrow {
+
+    margin-bottom: 24px;
+
+    color:
+        var(--gold);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    opacity: 0.82;
+
+}
+
+
+/* =========================================================
+   GOOD MORNING TITLE
+========================================================= */
+
+.message-title {
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            72px
+        );
+
+    line-height: 1.15;
+
+    font-weight: normal;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #ffffff 10%,
+            var(--gold-light) 45%,
+            var(--gold) 70%,
+            var(--gold-bright) 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+/* =========================================================
+   GOLD LINE
+========================================================= */
+
+.gold-line {
+
+    width: 72px;
+
+    height: 1px;
+
+    margin:
+        30px auto;
+
+    background:
+        var(--gold);
+
+    box-shadow:
+
+        0 0 15px
+        rgba(212,175,55,0.5);
+
+}
+
+
+/* =========================================================
+   MESSAGE TEXT
+========================================================= */
+
+.message-text {
+
+    max-width: 620px;
+
+    margin:
+        0 auto;
+
+    color:
+        rgba(255,255,255,0.73);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+}
+
+
+.message-text p {
+
+    margin-bottom: 20px;
+
+}
+
+
+.message-text p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.signature {
+
+    margin-top: 45px;
+
+    color:
+        var(--gold-light);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+
+    font-style: italic;
+
+    letter-spacing: 1px;
+
+    transition:
+
+        transform 0.35s ease,
+
+        text-shadow 0.35s ease;
+
+}
+
+
+.message-card:hover .signature {
+
+    transform:
+        translateY(-3px);
+
+    text-shadow:
+
+        0 0 15px
+        rgba(212,175,55,0.4);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    /* -------------------------
+       VERSES
+    ------------------------- */
+
+    .slide {
+
+        padding:
+            18px;
+
+    }
+
+
+    .verse-card {
+
+        width: 94vw;
+
+        min-height: 510px;
+
+        padding:
+            45px
+            25px;
+
+    }
+
+
+    .verse-card h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .verse-card p {
+
+        font-size: 13px;
+
+    }
+
+
+    /* -------------------------
+       YOKAI
+    ------------------------- */
+
+    .yokai-1,
+    .yokai-2 {
+
+        width: 190px;
+
+    }
+
+
+    .yokai-3,
+    .yokai-4 {
+
+        width: 170px;
+
+    }
+
+
+    .yokai-5,
+    .yokai-6 {
+
+        width: 200px;
+
+    }
+
+
+    .yokai-7,
+    .yokai-8,
+    .yokai-9,
+    .yokai-10 {
+
+        display: none;
+
+    }
+
+
+    /* -------------------------
+       MESSAGE
+    ------------------------- */
+
+    .message-content {
+
+        padding:
+            50px
+            16px;
+
+    }
+
+
+    .message-card {
+
+        width: 94vw;
+
+        padding:
+            55px
+            24px;
+
+    }
+
+
+    .message-title {
+
+        font-size: 45px;
+
+    }
+
+
+    .message-eyebrow {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .message-text {
+
+        font-size: 14px;
+
+        line-height: 1.9;
+
+    }
+
+
+    .signature {
+
+        margin-top: 35px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .slides {
+
+        scroll-behavior: auto;
+
+    }
+
+    .swipe-hint {
+
+        animation: none;
+
+    }
+
+    .yokai {
+
+        animation: none;
+
+    }
+
+}
+
+.good-morning-final {
+    margin-top: 18px;
+
+    color: rgba(255, 255, 255, 0.48);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    transform: translateY(5px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.message-card:hover .good-morning-final {
+    opacity: 1;
+    transform: translateY(0);
+}

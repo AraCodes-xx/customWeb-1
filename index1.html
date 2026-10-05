@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Reminder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="verse-page">
+
+    <main class="verse-home">
+
+        <!-- Soft background glow -->
+        <div class="gold-glow glow-left"></div>
+        <div class="gold-glow glow-right"></div>
+
+
+        <!-- =================================================
+             HORIZONTAL VERSE SLIDER
+        ================================================== -->
+
+        <div class="slides" id="slides">
+
+
+            <!-- ================= VERSE 1 ================= -->
+
+            <section class="slide">
+
+                <div class="verse-card">
+
+                    <div class="eyebrow">
+                        A LITTLE REMINDER
+                    </div>
+
+                    <h1>
+                        “The Lord is my shepherd;
+                        I shall not want.”
+                    </h1>
+
+                    <div class="reference">
+                        Psalm 23:1
+                    </div>
+
+                    <p>
+                        You are cared for, guided,
+                        and never forgotten.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= VERSE 2 ================= -->
+
+            <section class="slide">
+
+                <div class="verse-card">
+
+                    <div class="eyebrow">
+                        REMEMBER
+                    </div>
+
+                    <h1>
+                        “Fear thou not;
+                        for I am with thee.”
+                    </h1>
+
+                    <div class="reference">
+                        Isaiah 41:10
+                    </div>
+
+                    <p>
+                        Whatever today brings,
+                        you don't have to face it alone.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= VERSE 3 ================= -->
+
+            <section class="slide">
+
+                <div class="verse-card">
+
+                    <div class="eyebrow">
+                        KEEP GOING
+                    </div>
+
+                    <h1>
+                        “The Lord thy God is with thee
+                        whithersoever thou goest.”
+                    </h1>
+
+                    <div class="reference">
+                        Joshua 1:9
+                    </div>
+
+                    <p>
+                        Wherever life takes you,
+                        His presence goes with you.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= VERSE 4 ================= -->
+
+            <section class="slide">
+
+                <div class="verse-card">
+
+                    <div class="eyebrow">
+                        YOU ARE NOT ALONE
+                    </div>
+
+                    <h1>
+                        “Yea, though I walk through
+                        the valley of the shadow of death,
+                        I will fear no evil:
+                        for thou art with me.”
+                    </h1>
+
+                    <div class="reference">
+                        Psalm 23:4
+                    </div>
+
+                    <p>
+                        Even in difficult moments,
+                        His presence remains beside you.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= VERSE 5 ================= -->
+
+            <section class="slide">
+
+                <div class="verse-card final-card">
+
+                    <div class="eyebrow">
+                        ALWAYS
+                    </div>
+
+                    <h1>
+                        “And, lo, I am with you alway,
+                        even unto the end of the world.”
+                    </h1>
+
+                    <div class="reference">
+                        Matthew 28:20
+                    </div>
+
+                    <p>
+                        You are never alone.
+                        He is with you — always.
+                    </p>
+
+
+                    <a
+                        href="message.html"
+                        class="continue-btn"
+                    >
+                        Continue
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SLIDE DOTS
+        ================================================== -->
+
+        <div class="dots" id="dots">
+
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+
+        <!-- Swipe indicator -->
+
+        <div class="swipe-hint">
+            SWIPE →
+        </div>
+
+    </main>
+
+
+
+    <script>
+
+        const slides =
+            document.getElementById("slides");
+
+        const dots =
+            document.querySelectorAll(".dot");
+
+
+        function updateDots() {
+
+            const index =
+                Math.round(
+                    slides.scrollLeft /
+                    slides.clientWidth
+                );
+
+
+            dots.forEach((dot, i) => {
+
+                dot.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            });
+
+
+            // Hide swipe hint after first movement
+
+            if (index > 0) {
+
+                document
+                    .querySelector(".swipe-hint")
+                    .style.opacity = "0";
+
+            }
+
+        }
+
+
+        slides.addEventListener(
+            "scroll",
+            updateDots
+        );
+
+
+        /* Keyboard navigation */
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+
+                if (event.key === "ArrowRight") {
+
+                    slides.scrollBy({
+                        left: slides.clientWidth,
+                        behavior: "smooth"
+                    });
+
+                }
+
+                if (event.key === "ArrowLeft") {
+
+                    slides.scrollBy({
+                        left: -slides.clientWidth,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
